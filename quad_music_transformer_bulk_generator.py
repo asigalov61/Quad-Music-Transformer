@@ -422,7 +422,7 @@ print('=' * 70)
 
 #@markdown Press play button to to upload your own seed MIDI or to load one of the provided sample seed MIDIs from the dropdown list below
 
-select_seed_MIDI = "Quad-Music-Transformer-Piano-Seed-1" # @param ["Upload your own custom MIDI", "Quad-Music-Transformer-Piano-Seed-1", "Quad-Music-Transformer-Piano-Seed-2", "Quad-Music-Transformer-Piano-Seed-3", "Quad-Music-Transformer-Piano-Seed-4", "Quad-Music-Transformer-Piano-Seed-5", "Quad-Music-Transformer-Piano-Seed-6", "Quad-Music-Transformer-MI-Seed-1", "Quad-Music-Transformer-MI-Seed-2", "Quad-Music-Transformer-MI-Seed-3", "Quad-Music-Transformer-MI-Seed-4", "Quad-Music-Transformer-MI-Seed-5", "Quad-Music-Transformer-MI-Seed-6"]
+select_seed_MIDI = "Upload your own custom MIDI" # @param ["Upload your own custom MIDI", "Quad-Music-Transformer-Piano-Seed-1", "Quad-Music-Transformer-Piano-Seed-2", "Quad-Music-Transformer-Piano-Seed-3", "Quad-Music-Transformer-Piano-Seed-4", "Quad-Music-Transformer-Piano-Seed-5", "Quad-Music-Transformer-Piano-Seed-6", "Quad-Music-Transformer-MI-Seed-1", "Quad-Music-Transformer-MI-Seed-2", "Quad-Music-Transformer-MI-Seed-3", "Quad-Music-Transformer-MI-Seed-4", "Quad-Music-Transformer-MI-Seed-5", "Quad-Music-Transformer-MI-Seed-6"]
 render_MIDI_to_audio = False # @param {type:"boolean"}
 
 print('=' * 70)
