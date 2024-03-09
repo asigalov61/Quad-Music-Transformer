@@ -16,5 +16,16 @@
 
 ***
 
+## Composer Version
+
+[![Open In Colab][colab-badge]][colab-notebook2]
+
+[colab-notebook2]: <https://colab.research.google.com/github/asigalov61/Quad-Music-Transformer/blob/main/Quad_Music_Transformer_Composer.ipynb>
+[colab-badge]: <https://colab.research.google.com/assets/colab-badge.svg>
+
+### MuseNet-style workflow for endless supervised continuation generation
+
+***
+
 ### Project Los Angeles
 ### Tegridy Code 2024
