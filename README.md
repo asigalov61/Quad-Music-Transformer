@@ -27,5 +27,16 @@
 
 ***
 
+## Bulk Generator Version
+
+[![Open In Colab][colab-badge]][colab-notebook3]
+
+[colab-notebook3]: <https://colab.research.google.com/github/asigalov61/Quad-Music-Transformer/blob/main/Quad_Music_Transformer_Bulk_Generator.ipynb>
+[colab-badge]: <https://colab.research.google.com/assets/colab-badge.svg>
+
+### Bulk improvs and continuations generation
+
+***
+
 ### Project Los Angeles
 ### Tegridy Code 2024
