@@ -48,6 +48,9 @@
 ### 4) Larger model embed size (2048) with less layers (16) and heads (16)
 ### 5) Training longer since the MIDI dataset is small (2 full epochs)
 ### 6) Using MIDI instruments families (16) instead of full MIDI instruments range (128)
+### 7) Using symmetrical quad MIDI notes encoding
+### 8) 8k sequence length so that the model can learn long-term music scructure
+### 9) Using fp16 precision so that the model is sufficiently fast with low memory footprint
 
 ***
 
