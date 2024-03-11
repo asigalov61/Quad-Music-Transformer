@@ -52,6 +52,7 @@
 ### 8) 8k sequence length so that the model can learn long-term music scructure
 ### 9) Using fp16 precision so that the model is sufficiently fast with low memory footprint
 ### 10) Hex (16) MIDI velocity range to avoid velocity overfitting while preserving velocity details
+### 11) Chords sorting by instruments families (L-H) and by pitch (H-L)
 
 ***
 
