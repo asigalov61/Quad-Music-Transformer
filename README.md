@@ -51,6 +51,7 @@
 ### 7) Using symmetrical quad MIDI notes encoding
 ### 8) 8k sequence length so that the model can learn long-term music scructure
 ### 9) Using fp16 precision so that the model is sufficiently fast with low memory footprint
+### 10) Hex (16) MIDI velocity range to avoid velocity overfitting while preserving velocity details
 
 ***
 
