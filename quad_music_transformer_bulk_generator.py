@@ -202,29 +202,54 @@ if plot_tokens_embeddings:
 
 """# (GENERATE)
 
-# (SETUP OUTPUT MIDI PATCHES)
+# (SETUP MODEL CHANNELS MIDI PATCHES)
 """
 
-# @title Setup and load output MIDI patches
-output_MIDI_patches = "0, 10, 19, 24, 35, 40, 52, 56, 65, 73, 87, 89, 98, 105, 117, 123" # @param {type:"string"}
+# @title Setup and load model channels MIDI patches
 
-patches = [int(p) if 0 <= int(p) < 128 else 0 for p in output_MIDI_patches.split(',')]
+model_channel_0_piano_family = "Acoustic Grand" # @param ["Acoustic Grand", "Bright Acoustic", "Electric Grand", "Honky-Tonk", "Electric Piano 1", "Electric Piano 2", "Harpsichord", "Clav"]
+model_channel_1_chromatic_percussion_family = "Music Box" # @param ["Celesta", "Glockenspiel", "Music Box", "Vibraphone", "Marimba", "Xylophone", "Tubular Bells", "Dulcimer"]
+model_channel_2_organ_family = "Church Organ" # @param ["Drawbar Organ", "Percussive Organ", "Rock Organ", "Church Organ", "Reed Organ", "Accordion", "Harmonica", "Tango Accordion"]
+model_channel_3_guitar_family = "Acoustic Guitar(nylon)" # @param ["Acoustic Guitar(nylon)", "Acoustic Guitar(steel)", "Electric Guitar(jazz)", "Electric Guitar(clean)", "Electric Guitar(muted)", "Overdriven Guitar", "Distortion Guitar", "Guitar Harmonics"]
+model_channel_4_bass_family = "Fretless Bass" # @param ["Acoustic Bass", "Electric Bass(finger)", "Electric Bass(pick)", "Fretless Bass", "Slap Bass 1", "Slap Bass 2", "Synth Bass 1", "Synth Bass 2"]
+model_channel_5_strings_family = "Violin" # @param ["Violin", "Viola", "Cello", "Contrabass", "Tremolo Strings", "Pizzicato Strings", "Orchestral Harp", "Timpani"]
+model_channel_6_ensemble_family = "Choir Aahs" # @param ["String Ensemble 1", "String Ensemble 2", "SynthStrings 1", "SynthStrings 2", "Choir Aahs", "Voice Oohs", "Synth Voice", "Orchestra Hit"]
+model_channel_7_brass_family = "Trumpet" # @param ["Trumpet", "Trombone", "Tuba", "Muted Trumpet", "French Horn", "Brass Section", "SynthBrass 1", "SynthBrass 2"]
+model_channel_8_reed_family = "Alto Sax" # @param ["Soprano Sax", "Alto Sax", "Tenor Sax", "Baritone Sax", "Oboe", "English Horn", "Bassoon", "Clarinet"]
+model_channel_9_pipe_family = "Flute" # @param ["Piccolo", "Flute", "Recorder", "Pan Flute", "Blown Bottle", "Skakuhachi", "Whistle", "Ocarina"]
+model_channel_10_synth_lead_family = "Lead 8 (bass+lead)" # @param ["Lead 1 (square)", "Lead 2 (sawtooth)", "Lead 3 (calliope)", "Lead 4 (chiff)", "Lead 5 (charang)", "Lead 6 (voice)", "Lead 7 (fifths)", "Lead 8 (bass+lead)"]
+model_channel_11_synth_pad_family = "Pad 2 (warm)" # @param ["Pad 1 (new age)", "Pad 2 (warm)", "Pad 3 (polysynth)", "Pad 4 (choir)", "Pad 5 (bowed)", "Pad 6 (metallic)", "Pad 7 (halo)", "Pad 8 (sweep)"]
+model_channel_12_synth_effects_family = "FX 3 (crystal)" # @param ["FX 1 (rain)", "FX 2 (soundtrack)", "FX 3 (crystal)", "FX 4 (atmosphere)", "FX 5 (brightness)", "FX 6 (goblins)", "FX 7 (echoes)", "FX 8 (sci-fi)"]
+model_channel_13_ethnic_family = "Banjo" # @param ["Sitar", "Banjo", "Shamisen", "Koto", "Kalimba", "Bagpipe", "Fiddle", "Shanai"]
+model_channel_14_percussive_family = "Melodic Tom" # @param ["Tinkle Bell", "Agogo", "Steel Drums", "Woodblock", "Taiko Drum", "Melodic Tom", "Synth Drum", "Reverse Cymbal"]
+model_channel_15_sound_effects_family = "Bird Tweet" # @param ["Guitar Fret Noise", "Breath Noise", "Seashore", "Bird Tweet", "Telephone Ring", "Helicopter", "Applause", "Gunshot"]
+model_channel_16_drums_family = "Drums" # @param ["Drums"]
 
-for chan, pat in enumerate(patches):
+print('=' * 70)
+print('Setting up patches...')
+print('=' * 70)
 
-  if chan == 9:
-      channel = 16
-      patch = 0
-  else:
-    channel = chan
-    patch = pat
+instruments = [v[1] for v in TMIDIX.Number2patch.items()]
 
-  print('=' * 70)
-  print('MIDI Channel:', chan)
-  print('Model Channel:', channel)
+patches = [instruments.index(model_channel_0_piano_family),
+                       instruments.index(model_channel_1_chromatic_percussion_family),
+                       instruments.index(model_channel_2_organ_family),
+                       instruments.index(model_channel_3_guitar_family),
+                       instruments.index(model_channel_4_bass_family),
+                       instruments.index(model_channel_5_strings_family),
+                       instruments.index(model_channel_6_ensemble_family),
+                       instruments.index(model_channel_7_brass_family),
+                       instruments.index(model_channel_8_reed_family),
+                       9, # Drums patch
+                       instruments.index(model_channel_9_pipe_family),
+                       instruments.index(model_channel_10_synth_lead_family),
+                       instruments.index(model_channel_11_synth_pad_family),
+                       instruments.index(model_channel_12_synth_effects_family),
+                       instruments.index(model_channel_13_ethnic_family),
+                       instruments.index(model_channel_15_sound_effects_family)
+                       ]
 
-  print('MIDI Patch:', patch, '===', TMIDIX.MIDI_Instruments_Families[channel], '===', TMIDIX.Number2patch[patch])
-
+print('Done!')
 print('=' * 70)
 
 """# (BULK IMPROV)"""
@@ -239,7 +264,7 @@ improv_type = "Random Freestyle" # @param ["Random Freestyle", "Freestyle withou
 
 #@markdown Custom Improv settings
 
-first_note_MIDI_channel = 0 # @param {type:"slider", min:0, max:16, step:1}
+first_note_model_channel = 0 # @param {type:"slider", min:0, max:16, step:1}
 first_note_MIDI_pitch = 60 # @param {type:"slider", min:1, max:127, step:1}
 add_drums = False #@param {type:"boolean"}
 
@@ -277,18 +302,9 @@ if improv_type == 'Custom':
       drumsp = 2449 # No
       dr = 0
 
-  if first_note_MIDI_channel < 9:
-    fchan = first_note_MIDI_channel
+  outy = [2595, drumsp, 2450+first_note_model_channel, 2467+first_note_MIDI_pitch]
 
-  elif first_note_MIDI_channel == 9:
-    fchan = 16
-
-  elif 9 < first_note_MIDI_channel < 17:
-    fchan = first_note_MIDI_channel-1
-
-  outy = [2595, drumsp, 2450+fchan, 2467+first_note_MIDI_pitch]
-
-  improv_type += '_C'+str(first_note_MIDI_channel)+'_P'+str(first_note_MIDI_pitch)+'_D'+str(dr)
+  improv_type += '_C'+str(first_note_model_channel)+'_P'+str(first_note_MIDI_pitch)+'_D'+str(dr)
 
 output_dir = '/content/Output/Improvs/'+improv_type+'_'+str(date_time) + '/'
 
