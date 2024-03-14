@@ -35,7 +35,6 @@ WARNING: This complete implementation is a functioning model of the Artificial I
 #@title Install dependencies
 !git clone --depth 1 https://github.com/asigalov61/Quad-Music-Transformer
 !pip install huggingface_hub
-!pip install torch
 !pip install einops
 !pip install torch-summary
 !apt install fluidsynth #Pip does not work for some reason. Only apt works
