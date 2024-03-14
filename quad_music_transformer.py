@@ -108,7 +108,7 @@ print('=' * 70)
 
 full_path_to_models_dir = "/content/Quad-Music-Transformer/Model/Optimized"
 
-model_checkpoint_file_name = 'Quad_Music_Transformer_Large_Optimized_Trained_Model_22620_steps_0.5708_loss_0.8231_acc.pth'
+model_checkpoint_file_name = 'Quad_Music_Transformer_Large_Optimized_Trained_Model_47708_steps_0.7875_loss_0.7387_acc.pth'
 model_path = full_path_to_models_dir+'/'+model_checkpoint_file_name
 num_layers = 16
 
