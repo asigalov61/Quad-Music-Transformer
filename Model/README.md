@@ -1,8 +1,13 @@
-# Quad Music Transformer Pre-Trained Model
+# Quad Music Transformer Original Pre-Trained Model
 
 ***
 
-## Model is hosted on [Hugging Face](https://huggingface.co/asigalov61/Quad-Music-Transformer)
+## This is the original (non-optimized) Quad Music Transformer pre-trained model with its respective generator code/colabs
+## For optimized Quad Music Transformer pre-trained model please see [Optimized](https://github.com/asigalov61/Quad-Music-Transformer/tree/main/Model/Optimized) dir above
+
+***
+
+## Original pre-trained model is hosted on [Hugging Face](https://huggingface.co/asigalov61/Quad-Music-Transformer)
 
 ***
 
