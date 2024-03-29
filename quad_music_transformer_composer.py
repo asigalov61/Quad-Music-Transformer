@@ -681,36 +681,36 @@ if len(melody_chords_f) != 0:
     pitch = 0
     channel = 0
 
-      for ss in song:
+    for ss in song:
 
-          if 0 <= ss < 128:
+        if 0 <= ss < 128:
 
-              time += ss * 32
+            time += ss * 32
 
-          if 128 <= ss < 256:
+        if 128 <= ss < 256:
 
-              dur = (ss-128) * 32
+            dur = (ss-128) * 32
 
-          if 256 <= ss < 2432:
+        if 256 <= ss < 2432:
 
-              chan = (ss-256) // 128
+            chan = (ss-256) // 128
 
-              if chan < 9:
-                  channel = chan
-              elif 9 < chan < 15:
-                  channel = chan+1
-              elif chan == 15:
-                  channel = 15
-              elif chan == 16:
-                  channel = 9
+            if chan < 9:
+                channel = chan
+            elif 9 < chan < 15:
+                channel = chan+1
+            elif chan == 15:
+                channel = 15
+            elif chan == 16:
+                channel = 9
 
-              pitch = (ss-256) % 128
+            pitch = (ss-256) % 128
 
-          if 2432 <= ss < 2448:
+        if 2432 <= ss < 2448:
 
-              vel = (((ss-2432)+1) * 8)-1
+            vel = (((ss-2432)+1) * 8)-1
 
-              song_f.append(['note', time, dur, channel, pitch, vel, chan*8 ])
+            song_f.append(['note', time, dur, channel, pitch, vel, chan*8 ])
 
     detailed_stats = TMIDIX.Tegridy_ms_SONG_to_MIDI_Converter(song_f,
                                                               output_signature = 'Quad Music Transformer',
